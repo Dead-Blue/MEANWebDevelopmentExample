@@ -5,7 +5,18 @@
 	<title><%= title %></title>
 </head>
 <body>
-	<img src="img/logo.jpg" alt="Logo">
-	<h1><%= title %></h1>
+<%if (userFullName) { %>
+<h2>Hello <%=userFullName%></h2>
+<a href="/signout">Sign out</a>
+<% } else {%>
+<a href="/signup">Signup</a>
+<a href="/signin">Signin</a>
+<% } %>
+	<section>
+		<input type="text" id="text1" ng-model="name">
+		<input type="text" id="text2" ng-model="name">
+	</section>
+	<script type="text/javascript" src="/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="/application.js"></script>
 </body>
 </html>	
