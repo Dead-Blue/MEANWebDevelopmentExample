@@ -86,7 +86,7 @@ UserSchema.methods.hashPassword = function(password) {
 
 //定义自定义Instance methods  使用方法user.authenticate('password');
 UserSchema.methods.authenticate = function(password) {
-	return this.password === password;
+	return this.password === this.hashPassword(password);
 };
 
 //自定义静态模型方法
