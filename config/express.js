@@ -10,11 +10,11 @@ var morgan = require('morgan'),
 	http = require('http'),
 	socketio = require('socket.io');
 var MongoStore = require('connect-mongo')(session);
-module.exports = function () {
+module.exports = function (db) {
 	var app = express();
 	var server = http.createServer(app);
 	var io = socketio.listen(server);
-	
+
 	if (process.env.NODE_ENV === 'development') {
 		app.use(morgan('dev'));
 	} else if (process.env.NODE_ENV === 'production') {
@@ -25,11 +25,11 @@ module.exports = function () {
 	}));
 	app.use(bodyParser.json());
 	app.use(methodOverride());
-	
+
 	var mongoStore = new MongoStore({
 		db: db.connection.db
 	});
-	
+
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
@@ -44,10 +44,10 @@ module.exports = function () {
 	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/users.server.routes.js')(app);
 	require('../app/routes/articles.server.routes.js')(app);
-	
+
 	require('./socketio')(server, io, mongoStore);
-	
+
 	app.use(express.static('./public'));
-	
+
 	return server;
 };
