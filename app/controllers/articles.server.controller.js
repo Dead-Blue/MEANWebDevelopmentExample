@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 	var article = new Article(req.body);
 	article.creator = req.user;
-	
+
 	article.save(function(err) {
 		if(err) {
 			return res.status(400).send({
@@ -43,7 +43,7 @@ exports.articleByID = function(req, res, next, id) {
 	Article.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, article) {
 		if (err) return next(err);
 		if (!article) return next(new Error('Failed ti load atricle' + id));
-		
+
 		req.article = article;
 		next();
 	});
@@ -55,10 +55,10 @@ exports.read = function(req, res) {
 
 exports.update = function(req, res) {
 	var article = req.article;
-	
+
 	article.title = req.body.title;
 	article.content = req.body.content;
-	
+
 	article.save(function(err) {
 		if(err) {
 			return res.status(400).send({
@@ -72,7 +72,7 @@ exports.update = function(req, res) {
 
 exports.delete = function(req, res) {
 	var article = req.article;
-	
+
 	article.remove(function(err) {
 		if(err) {
 			return res.status(400).send({
@@ -84,7 +84,6 @@ exports.delete = function(req, res) {
 	});
 };
 
-
 exports.hasAuthorization = function(req, res, next) {
 	if (req.article.creator.id !== req.user.id) {
 		return res.status(403).send({
@@ -92,4 +91,4 @@ exports.hasAuthorization = function(req, res, next) {
 		});
 	}
 	next();
-}
+};

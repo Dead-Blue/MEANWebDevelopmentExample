@@ -17,7 +17,7 @@ module.exports = function(server, io, mongoStore) {
 						} else {
 							next(new Error('User is not authenticated'), false);
 						}
-					})
+					});
 				});
 			});
 		});
