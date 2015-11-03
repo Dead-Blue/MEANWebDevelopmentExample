@@ -3,21 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title><%=title %></title>
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
 	<% for(var i in messages) { %>
-	<div class="calss"><%= messages[i] %></div>
+	<div class="flash"><%= messages[i] %></div>
 	<% } %>
-	<form action="/signin" method="post">
-	<div>
-		<label for="">Username:</label>
-		<input type="text" name="username" />
+	<div class="header text-center">
+		<h1>登陆</h1>
 	</div>
-	<div>
-		<label for="">Password:</label>
-		<input type="password" name="password" />
+	<div class="container">
+		<form class="form" action="/signin" method="post">
+			<div class="row form-group">
+				<div class="col-md-4">
+					<label for="">Username:</label>
+				</div>
+			<div class="col-md-8">
+					<input class="form-control" type="text" name="username" />
+			</div>
+			</div>
+		<div class="row form-group">
+		<div class="col-md-4">
+				<label for="">Password:</label>
+		</div>
+			<div class="col-md-8">
+				<input class="form-control" type="password" name="password" />
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Sign In</button>
+		</form>
 	</div>
-	<input type="submit" value="Sign In">
-	</form>
 </body>
+<script src="/lib/jquery/dist/jquery.min.js" charset="utf-8"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 </html>

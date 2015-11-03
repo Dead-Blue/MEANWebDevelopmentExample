@@ -1,8 +1,12 @@
 <section data-ng-controller="ChatController">
+  <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> 如果聊天界面没有出现，请刷新。
+</div>
 <div data-ng-repeat="message in messages" data-ng-switch="message.type">
   <strong data-ng-switch-when='status'>
     <span data-ng-bind="message.created | date:'mediunTime'"></span>
-    <span data-ng-bind="message.username"></span>
+    <!-- <span data-ng-bind="message.username"></span> -->
     <span>is</span>
     <span data-ng-bind="message.username"></span>
   </strong>
@@ -12,9 +16,12 @@
   <span>:</span>
   <span data-ng-bind="message.text"></span>
   </span>
-  <form  ng-submit="sendMessage();">
-    <input type="text" data-ng-model="messageText">
-    <input type="submit">
+  <form  ng-submit="sendMessage(); " class="form-inline" ng-hide="visible">
+    <div class="form-group">
+    <label for="SendMessage">SendMessage</label>
+    <input type="text" class="form-control" data-ng-model="messageText">
+    <button type="submit" class="btn btn-default">Send</button>
+    </div>
   </form>
 </div>
 </section>

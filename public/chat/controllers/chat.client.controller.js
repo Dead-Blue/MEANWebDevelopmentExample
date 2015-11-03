@@ -11,6 +11,7 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket', functio
     Socket.emit('chatMessage', message);
 
     this.messageText = '';
+    this.visible = !this.visible;
   }
   $scope.$on('$destory', function() {
     Socket.removeListener('chatMessage');

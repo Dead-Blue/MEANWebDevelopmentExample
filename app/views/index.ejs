@@ -3,13 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title><%= title %></title>
-</head>
-<body>
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/index.css">
 
-	<section ng-view></section>
+</head>
+<body ng-app="mean">
+	<div class="container">
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="text-center">Hello,Welcome to My WebSite!<img src="/images/ac-bitmap.png" alt="Hello!" class="img-rounded"></h1>
+<button type="button" class="btn btn-primary btn-lg"> 首页</button>
+	</div>
+</div>
+<div class="row" ng-controller="ExampleController">
+		<div class="col-md-2 bg-info" data-ng-show="authentication.user">
+			<ul class="nav nav-pills nav-stacked" id="navBar">
+				<li><a role="presentation" href="/#!/">Home</a></li>
+				<li><a role="presentation" href="/#!/chat">Chat</a></li>
+				<li><a role="presentation" href="/#!/articles">List Articles</a></li>
+				<li><a role="presentation" href="/#!/articles/create">Create Articles</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10 ">
+		<div class="bg-info" id="mainPage">
+				<section ng-view></section>
+		</div>
+		</div>
+</div>
+</div>
+
 	<script type="text/javascript">
 	window.user = <%- user || 'null' %>;
 	</script>
+	<script src="/lib/jquery/dist/jquery.min.js" charset="utf-8"></script>
+	<script src="/lib/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 	<script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="/lib/angular/angular.js"></script>
 	<script src="/lib/angular-route/angular-route.js" type="text/javascript"></script>

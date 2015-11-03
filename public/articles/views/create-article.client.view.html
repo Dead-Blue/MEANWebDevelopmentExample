@@ -1,23 +1,27 @@
 <section data-ng-controller="ArticlesController">
-	<h1>New Article</h1>
-	<form data-ng-submit="create()" novalidate>
+	<h1 class="text-center">New Article</h1>
+	<div class="container" id="createArticle">
 		<div>
-			<label for="title">Title</label>
-			<div>
-				<input type="text" data-ng-model="title" id="title" placeholder="Title" required>
-			</div>
+			<form class="form text-center" data-ng-submit="create()" novalidate>
+				<div class="form-group">
+					<label for="title">Title</label>
+					<div>
+						<input type="text" class="form-control" data-ng-model="title" id="title" placeholder="Title" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="content">Content</label>
+					<div>
+						<textarea class="form-control"  id="content" cols="30" rows="10" data-ng-model="content" placeholder="Content"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">提交</button>
+				</div>
+				<div data-ng-show="error">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</form>
 		</div>
-		<div>
-			<label for="content">Content</label>
-			<div>
-				<textarea  id="content" cols="30" rows="10" data-ng-model="content" placeholder="Content"></textarea>
-			</div>
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-		<div data-ng-show="error">
-			<strong data-ng-bind="error"></strong>
-		</div>
-	</form>
+	</div>
 </section>

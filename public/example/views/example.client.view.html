@@ -1,15 +1,27 @@
 <section ng-controller="ExampleController">
 	<div data-ng-show="!authentication.user">
-		<a href="/signup">Signup</a>
-		<a href="/signin">Signin</a>
+<div class="container">
+	<span>	没有账号？请注册：</span><a class="btn btn-primary" href="/signup">Signup</a><br>
+		<span>	有账号？请登陆：</span><a class="btn btn-primary" href="/signin">Signin</a>
 	</div>
-	<div data-ng-show="authentication.user">
-		<h1>Hello <span data-ng-bind="authentication.user.fullName"></span></h1>
-		<a href="/signout">Signout</a>
+</div>
+	<div data-ng-show="authentication.user" class="container">
+		<div>
+			<ul class="nav nav-tabs " id="navBar">
+<li><a role="presentation" href="/#!/">Home</a></li>
+<li><a role="presentation" href="/#!/chat">Chat</a></li>
+<li><a role="presentation" href="/#!/articles">List Articles</a></li>
+<li><a role="presentation" href="/#!/articles/create">Create Articles</a></li>
+<li>	<a class="btn btn-primary navbar-right" href="/signout">Signout</a></li>
+	<p class="navbar-text navbar-right">Signed in as <span data-ng-bind="authentication.user.fullName"></span></p>
+			</ul>
+			<h1>Hello <span data-ng-bind="authentication.user.fullName"></span></h1>
+
+		</div>
 	</div>
-	<ul>
+	<!-- <ul class="nav nav-pills nav-stacked navbar-fixed-left">
 		<li><a href="/#!/chat">Chat</a></li>
 		<li><a href="/#!/articles">List Articles</a></li>
 		<li><a href="/#!/articles/create">Create Articles</a></li>
-	</ul>
+	</ul> -->
 </section>
