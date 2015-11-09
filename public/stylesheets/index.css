@@ -3,7 +3,7 @@ body{
   background-size: contain;
 }
 .col-md-2{
-  height:500px;
+  height:auto;
 }
 .col-md-10{
 
@@ -15,20 +15,21 @@ body{
 p{
   word-wrap:break-word;
   word-break:normal;
-  width: 400px;
+  width: auto;
 }
 .panel {
-  width: 600px;
+  width: auto;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .alert{
-width: 600px;
+width: auto;
 }
-.container{
 
-}
 #createArticle{
- width: 600px;
+ width: auto;
 }
 #editArticle{
-  width: 600px;
+  width: auto;
 }

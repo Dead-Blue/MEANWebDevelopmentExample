@@ -9,13 +9,14 @@
 </head>
 <body ng-app="mean">
 	<div class="container">
+		<a type="button pull-left" class="btn btn-primary btn-lg" href="/#!/"> 首页</a>
 <div class="jumbotron">
 	<div class="container">
 		<h1 class="text-center">Hello,Welcome to My WebSite!<img src="/images/ac-bitmap.png" alt="Hello!" class="img-rounded"></h1>
-<button type="button" class="btn btn-primary btn-lg"> 首页</button>
 	</div>
 </div>
-<div class="row" ng-controller="ExampleController">
+<div class="container">
+	<div class="row" ng-controller="ExampleController">
 		<div class="col-md-2 bg-info" data-ng-show="authentication.user">
 			<ul class="nav nav-pills nav-stacked" id="navBar">
 				<li><a role="presentation" href="/#!/">Home</a></li>
@@ -29,6 +30,7 @@
 				<section ng-view></section>
 		</div>
 		</div>
+</div>
 </div>
 </div>
 

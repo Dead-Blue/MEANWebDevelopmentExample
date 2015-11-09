@@ -1,6 +1,5 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
 	<h1 class="text-center">Articles</h1>
-<div class="container">
 	<ul >
 		<li data-ng-repeat="article in articles">
 			<div id="articlesListOne">
@@ -23,6 +22,6 @@
 	<div class="alert alert-danger" data-ng-hide="!articles || articles.length">
 		No articles yet, wht don't you <a href="/#!/articles/create">create one</a>?
 	</div>
-</div>
+
 
 </section>
